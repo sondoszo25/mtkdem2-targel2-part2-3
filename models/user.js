@@ -16,7 +16,7 @@ const User= new Schema({
     },
     profilePic:{
         type: String,
-        default:null
+        required:true
     },
 })
 module.exports=mongose.model('User',User);

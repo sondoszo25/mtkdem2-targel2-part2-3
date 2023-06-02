@@ -16,7 +16,8 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+const routeuser=require('./routes/user');
 server.use(express.static('public'));
-
+server.use('/Users',routeuser);
 server.listen(process.env.PORT);
 
