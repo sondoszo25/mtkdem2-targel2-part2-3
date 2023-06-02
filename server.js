@@ -17,7 +17,9 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     useUnifiedTopology: true
 });
 const routeuser=require('./routes/user');
+const routtoken=require('./routes/tokens');
 server.use(express.static('public'));
 server.use('/Users',routeuser);
+server.use('/Tokens',routtoken);
 server.listen(process.env.PORT);
 
