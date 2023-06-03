@@ -38,6 +38,28 @@ const isLoggedIn = (req, res, next) => {
 }
 
 
+const isLoggedIn2 = (req, res, next) => {
+    // If the request has an authorization header
+    if (req.headers.authorization) {
+        // Extract the token from that header
+        const token = req.headers.authorization.split(" ")[1];
+        try {
+            // Verify the token is valid
+            var data=tokenservice.checktoken(token);
+            req.tokenData = data;
+            // Token validation was successful. Continue to the actual function (index)
+            return next();
+        } catch (err) {
+
+            return res.status(401).send("Invalid Token");
+        }
+    }
+    else
+        return res.status(403).send('Token required');
+}
+
+
+
 const index = async (req, res) => {
     const user = await userservice.getuser(req.params.id);
    
@@ -47,5 +69,5 @@ const index = async (req, res) => {
 
 
 module.exports = {
-    createUser, isLoggedIn, index
+    createUser, isLoggedIn, index,isLoggedIn2
 };
