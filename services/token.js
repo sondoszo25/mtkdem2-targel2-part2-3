@@ -1,6 +1,6 @@
 const User=require('../models/user');
-
-
+const jwt = require("jsonwebtoken");
+const key = "Some super secret key shhhhhhhhhhhhhhhhh!!!!!"
 const checkusernameandpassword=async(username,password) =>{
 try{
 const user= await User.findOne({username:username});
@@ -23,7 +23,16 @@ catch(error)
  return false;
 }
 }
-
+const maketoken = (data) =>{
+    const token = jwt.sign(data, key);
+    return token;
+    
+}
+ const  checktoken= (token) =>{
+    var parsedtoken = JSON.parse(token);
+    const data = jwt.verify(parsedtoken["token"], key);
+return data;
+}
 module.exports={
-    checkusernameandpassword
+    checkusernameandpassword,maketoken,checktoken
 }

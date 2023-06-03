@@ -22,6 +22,15 @@ catch(error)
 }
 }
 
+
+ const getuser=async(id) =>{
+    const user= await User.findOne({username:id});
+    return user;
+ }
+
+
+
+
 module.exports={
-    createUser,check
+    createUser,check,getuser
 }
