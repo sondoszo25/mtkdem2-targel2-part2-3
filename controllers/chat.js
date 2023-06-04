@@ -5,7 +5,6 @@ const createchat = async (req, res,data) => {
     try {
       const username = req.body.username;
       const user = await chatservice.check(username,data);
-  
       if (user) {
         const lastDocument = await Chat.findOne({}, {}, { sort: { _id: -1 } }).exec();
   

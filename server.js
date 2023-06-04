@@ -60,8 +60,8 @@ const routeuser=require('./routes/user');
 const routtoken=require('./routes/tokens');
 const routchat=require('./routes/chat');
 server.use(express.static('public'));
-server.use('/Users',routeuser);
-server.use('/Tokens',routtoken);
-server.use('/Chats',routchat);
+server.use('/api/Users',routeuser);
+server.use('/api/Tokens',routtoken);
+server.use('/api/Chats',routchat);
 server.listen(process.env.PORT);
 
