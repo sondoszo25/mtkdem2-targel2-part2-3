@@ -4,7 +4,7 @@ in this part we build a server,our server is running in port 8080,  which can gi
 
 a) http://localhost:8080/Chats :
 
-    1)in POST: it creates an new Chat
+    1)in POST: it creates a new Chat
     2)in GET: it gives us all the chats of the current user
 
 b)http://localhost:8080/Tokens : in POST it creates a jwt for the user who want to log in
@@ -24,4 +24,4 @@ e)http://localhost:8080/api/Chats/:id/Messages/ :
 we are saving all the data we get from the users in Mongodb, which is running in port 27017.
 
 *to run this code first you must make sure that mongodb is connected to this port and after that in the terminal
-of this project write npm start and in the browser go to localhost:8080*
+of this project write npm start and in the browser go to localhost:5000*
