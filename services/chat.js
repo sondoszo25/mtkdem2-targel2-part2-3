@@ -52,7 +52,7 @@ const createchat = async (id, user, lastMessage, username) => {
       return await Chat.find({id:id});
     };
     const deletethechat=async(id) =>{
-
+      io.emit('update2',{foo:id});
       try {
         const deleteResult = await Chat.deleteMany({id:id});
         await Message.deleteMany({id:id});
