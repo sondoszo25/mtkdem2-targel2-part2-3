@@ -1,6 +1,9 @@
-# mtkdem2-targel2-part2
+# mtkdem2-targel2-part2+3
 
-in this part we build a server,our server is running in port 5000,  which can gives responses to these:
+
+in this part we build a server.
+we took the code we wrote in part 1 we also added code to use sockets, then we did "npm run build" after that we got a build folder and we added it to this project.
+our server is running in port 5000,  which can gives responses to these:
 
 a) http://localhost:5000/api/Chats :
 
@@ -33,6 +36,8 @@ to delete a contact you should press on the button of "wastebasket" near the "ad
 
 
 we are saving all the data we get from the users in Mongodb, which is running in port 27017.
+
+
 
 *to run this code first you must make sure that mongodb is connected to the port above(27017) and after that in the terminal
 of this project write npm start (the start instruction is the same as the instruction"SET NODE_ENV=local && node server.js") and in the browser go to localhost:5000*
