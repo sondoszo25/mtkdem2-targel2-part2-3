@@ -15,7 +15,7 @@ const createchat = async (id, user, lastMessage, username) => {
       const chat2 = new Chat({ id, user: user2, lastMessage, username: username2 });
       await chat2.save();
       }
-      io.emit('update',{foo:bar});
+      io.emit('update',{foo:"bar"});
       await chat.save();
       return chat;
     } catch (error) {
