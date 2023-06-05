@@ -22,4 +22,12 @@ router.route('/').post(usercontrlloer.isLoggedIn2, (req, res) => {
     messagecontrlloer.getmessage(req, res, tokenData.username);
   });
 
-module.exports=router;
+ 
+
+  module.exports = {
+    router,
+    setSocket: (socketIO) => {
+      chatcontrlloer.updateIO(socketIO);
+      messagecontrlloer.updateIO(socketIO);
+    }
+  };

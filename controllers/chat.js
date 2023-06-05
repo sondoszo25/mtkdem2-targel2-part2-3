@@ -1,6 +1,11 @@
 const chatservice=require('../services/chat');
 const Chat = require('../models/chat');
 
+const updateIO = (socketIO) => {
+  chatservice.updateIO(socketIO);
+};
+
+
 const createchat = async (req, res,data) => {
     try {
       const username = req.body.username;
@@ -29,5 +34,5 @@ return res.json(await chatservice.getchats(data));
   }
 
 module.exports={
-    createchat,getchat
+    createchat,getchat,updateIO
 };

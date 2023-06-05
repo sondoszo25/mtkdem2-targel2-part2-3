@@ -51,6 +51,19 @@ const checkMongoDBStatus = () => {
 checkMongoDBStatus();
 
 
+const http=require('http');
+const {Server} =require("socket.io");
+
+const server2=http.createServer(server);
+
+const io = new Server(server2,{
+  cors:{
+   origin:{
+    origin:"http://localhost:3000",
+    methods:["GET","POST"],
+   }
+  },
+})
 
 
 
@@ -61,7 +74,8 @@ const routtoken=require('./routes/tokens');
 const routchat=require('./routes/chat');
 server.use(express.static('public'));
 server.use('/api/Users',routeuser);
+routchat.setSocket(io);
 server.use('/api/Tokens',routtoken);
-server.use('/api/Chats',routchat);
-server.listen(process.env.PORT);
+server.use('/api/Chats',routchat.router);
+server2.listen(process.env.PORT);
 

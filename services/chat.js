@@ -1,6 +1,11 @@
 const Chat=require('../models/chat');
 const User=require('../models/user');
 
+
+const updateIO = (socketIO) => {
+    io = socketIO;
+  };
+
 const createchat = async (id, user, lastMessage, username) => {
     try {
       const chat = new Chat({ id, user, lastMessage, username });
@@ -10,6 +15,7 @@ const createchat = async (id, user, lastMessage, username) => {
       const chat2 = new Chat({ id, user: user2, lastMessage, username: username2 });
       await chat2.save();
       }
+      io.emit('update',{foo:bar});
       await chat.save();
       return chat;
     } catch (error) {
@@ -40,5 +46,5 @@ const createchat = async (id, user, lastMessage, username) => {
         return await Chat.find({username:data});
     }
 module.exports={
-    createchat,check,getchats
+    createchat,check,getchats,updateIO
 }
