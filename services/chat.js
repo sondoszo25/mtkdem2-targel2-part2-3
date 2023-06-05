@@ -1,5 +1,6 @@
 const Chat=require('../models/chat');
 const User=require('../models/user');
+const Message=require('../models/message');
 
 
 const updateIO = (socketIO) => {
@@ -45,6 +46,26 @@ const createchat = async (id, user, lastMessage, username) => {
     const getchats=async(data) =>{
         return await Chat.find({username:data});
     }
+
+
+    const getthechat=async(id) =>{
+      return await Chat.find({id:id});
+    };
+    const deletethechat=async(id) =>{
+
+      try {
+        const deleteResult = await Chat.deleteMany({id:id});
+        await Message.deleteMany({id:id});
+       return true;
+      } catch (error) {
+        return false;
+      }
+    };
+
+   
+
+
+
 module.exports={
-    createchat,check,getchats,updateIO
+    createchat,check,getchats,updateIO,getthechat,deletethechat
 }

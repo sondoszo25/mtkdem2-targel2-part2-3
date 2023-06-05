@@ -22,6 +22,16 @@ router.route('/').post(usercontrlloer.isLoggedIn2, (req, res) => {
     messagecontrlloer.getmessage(req, res, tokenData.username);
   });
 
+  router.route('/:id').delete(usercontrlloer.isLoggedIn2, (req, res) => {
+    const tokenData = req.tokenData;
+    chatcontrlloer.deletethechat(req,res,tokenData.username)
+ });
+
+ router.route('/:id').get(usercontrlloer.isLoggedIn2, (req, res) => {
+  const tokenData = req.tokenData;
+  chatcontrlloer.getthechat(req,res,tokenData.username)
+ });
+
  
   
 

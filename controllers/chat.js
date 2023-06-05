@@ -33,6 +33,28 @@ const createchat = async (req, res,data) => {
 return res.json(await chatservice.getchats(data));
   }
 
+  const getthechat=async(req,res,data) =>{
+    var chatt1=await chatservice.getthechat(req.params.id);
+    if(chatt1)
+    {
+       res.json(chatt1);
+    }
+    else{
+      return res.status(404).json({ errors: ['not found'] });
+
+    }
+  };
+  const deletethechat=async(req,res,data) =>{
+    var stat=await  chatservice.deletethechat(req.params.id);
+    if(stat)
+    {
+      return res.status(200).json({ deleted: ['deleted'] });
+    }
+    else{
+      return res.status(404).json({ errors: ['not found'] });
+    }
+  };
+
 module.exports={
-    createchat,getchat,updateIO
+    createchat,getchat,updateIO,getthechat,deletethechat
 };
