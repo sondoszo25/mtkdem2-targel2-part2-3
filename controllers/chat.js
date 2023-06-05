@@ -48,7 +48,7 @@ return res.json(await chatservice.getchats(data));
     var stat=await  chatservice.deletethechat(req.params.id);
     if(stat)
     {
-      return res.status(200).json({ deleted: ['deleted'] });
+      return res.status(204).json({ deleted: ['deleted'] });
     }
     else{
       return res.status(404).json({ errors: ['not found'] });
