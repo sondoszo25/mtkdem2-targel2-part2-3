@@ -2,7 +2,8 @@
 
 
 in this part we build a server.
-we took the code we wrote in part 1 we also added code to use sockets, then we did "npm run build" after that we got a build folder and we added it to this project.
+we took the client we made (which exist in another repo) then we did "npm run build" after that we got a build folder and we added it to this project.
+and the client we made can talk with this server.
 our server is running in port 5000,  which can gives responses to these:
 
 a) http://localhost:5000/api/Chats :
@@ -40,4 +41,4 @@ we are saving all the data we get from the users in Mongodb, which is running in
 
 
 *to run this code first you must make sure that mongodb is connected to the port above(27017) and after that in the terminal
-of this project write npm start (the start instruction is the same as the instruction"SET NODE_ENV=local && node server.js") and in the browser go to localhost:5000*
+of this project write "npm start" (the start instruction is the same as the instruction"SET NODE_ENV=local && node server.js") and in the browser go to localhost:5000*
