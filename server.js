@@ -4,7 +4,7 @@ const server = express()
 const bodyParser = require('body-parser');
 server.use(bodyParser.urlencoded({ extended: true }));
 const jwt = require("jsonwebtoken");
-
+const path = require('path');
 const cors = require('cors');
 server.use(cors());
 
@@ -65,6 +65,14 @@ const io = new Server(server2,{
   },
 })
 
+server.get('/Register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
+server.get('/Chat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 
 server.use(express.json({limit: '50mb', extended: true }));
