@@ -1,46 +1,64 @@
-# mtkdem2-targel2-part2+3
+# Instant Messaging Web App
 
 
-in this part we build a server.
-we took the client we made (which exist in another repo) then we did "npm run build" after that we got a build folder and we added it to this project.
-and the client we made can talk with this server.
-our server is running in port 5000,  which can gives responses to these:
+This web app allows users to chat with friends in real-time after logging in or registering a new account. Below is a guide on how to use the app, along with screenshots to illustrate each step.
 
-a) http://localhost:5000/api/Chats :
+# Features
+(*) User Authentication: Log in or register with a username and password.
+(*) Friend Management: Add friends and chat with them instantly.
+(*) Real-Time Messaging: Engage in real-time conversations with your friends.
+# How to Use the App
+# 1. Login Page
+Once the app is running, you'll be directed to the homepage, where you can log in using your username and password.
+![Screenshot (86)](https://github.com/user-attachments/assets/be2d22e1-219d-46e4-be0e-bab2f997896d)
+If you don’t have an account, click on the "Click here" link to be redirected to the registration page.
+![Screenshot (93)](https://github.com/user-attachments/assets/2444d20d-bf83-4c63-b40d-4b4bf2e00b2c)
 
-    1)in POST: it creates a new Chat
-    2)in GET: it gives us all the chats of the current user
+# 2. Registration Page
+On the registration page, fill in your username, email, and password to create a new account
+![Screenshot (87)](https://github.com/user-attachments/assets/fadf2c19-af71-402e-a2a5-386f2ffdf52e)
+After registration, you'll be redirected to the login page where you can log in with your new credentials.
 
-b)http://localhost:5000/api/Tokens : in POST it creates a jwt for the user who want to log in
+# 3. Logged-In Dashboard
+After successfully logging in, you'll arrive at the main dashboard, where you can manage your friends and start chatting.
+![Screenshot (88)](https://github.com/user-attachments/assets/0287e917-d8c2-4242-ad08-d0779cb7ed45)
 
-c)http://localhost:5000/api/Users : in POST: creates a new user
+# 4. Adding Friends
+To add friends, click on the add friend icon located next to your username.
 
-d)http://localhost:5000/api/Users/:id : in GET returns all the details about the user with the id in the link.
+![Screenshot (94)](https://github.com/user-attachments/assets/2850bd3b-02cf-482f-a0c0-9b9193a740dc)
 
-e)http://localhost:5000/api/Chats/:id/Messages/ : 
+Enter your friend’s username in the search bar and hit Enter.
 
-    1)in GET: returns all the masseges between the users which are
-    talking in the chat with this id.
+![Screenshot (90)](https://github.com/user-attachments/assets/080fbe3a-b86f-4a42-966e-794d6e08807b)
 
-    2)in POST: send the meassge that its id located in the link.
-    
-d)http://localhost:5000/api/Chats/:id :
+Once your friend is added, you can begin chatting with them immediately.
 
-    1)in DELETE: deletes the chat which  its id located in the link.
-    
-    2)in GET: gets all the messeges for the user who's his id is the id located in the link.
-    
+# 5. Chatting Interface
+After adding a friend, start chatting by selecting their name from your friend list.
+![Screenshot (91)](https://github.com/user-attachments/assets/b514ce9f-91a1-4cd9-a430-13b0a6bd0cfb)
+![Screenshot (92)](https://github.com/user-attachments/assets/27a1ab85-e9bf-471e-8cd6-c737c039c17b)
 
-to add a contact you should click on the "person with plus" button and than type his username (not his display name), the user must be registered to be able to add it.
+# Installation and Running the App
+To run the project locally, follow these steps:
 
+1. Ensure MongoDB is running on port 27017, which is the default MongoDB port.
+2. Clone the repository and navigate to the project directory.
+3. Install the required dependencies by running:
+bash
+npm install
+4. Start the server by running:
+bash
+npm start
+Alternatively, use the command:
+bash
+SET NODE_ENV=local && node server.js
+5. Once the server is running, open your browser and go to:
+bash
+http://localhost:5000
+You should now be able to use the instant messaging web app.
 
-to delete a contact you should press on the button of "wastebasket" near the "add contact" button , and then type the name of the contact you want to delete.
- 
-
-
-we are saving all the data we get from the users in Mongodb, which is running in port 27017.
-
-
-
-*to run this code first you must make sure that mongodb is connected to the port above(27017) and after that in the terminal
-of this project write "npm start" (the start instruction is the same as the instruction"SET NODE_ENV=local && node server.js") and in the browser go to localhost:5000*
+# Technologies Used
+Node.js for the backend.
+MongoDB for the database.
+HTML/CSS/JavaScript for the front-end.
